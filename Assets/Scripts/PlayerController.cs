@@ -1,18 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using DG.Tweening;
 public class PlayerController : Singleton<PlayerController>
 {
     //TODO: Attributes
     [Header("Player Attributes")]
     public Animator _animator;
-    [SerializeField]private Rigidsbody _rigidbody;
+    [SerializeField]private Rigidbody _rigidbody;
 
-    [Range(0.1f, 5.0f),Tooltips("its a walk speed")] privatefloat _walkSpeed = 1f;
-    public float _walkSpeed = 1f;
+    [Range(0.1f, 5.0f),Tooltip("its a walk speed")] private float _walkSpeed = 1f;
     public float _runSpeed = 2f;
     public float _jumpForce = 10f;
-    public Rigidbody _rigidbody;
 
     private Vector2 _movementInput;
     private float _speed;
@@ -58,6 +56,8 @@ public class PlayerController : Singleton<PlayerController>
     // TODO: Make it easier to read
     void FixedUpdate()
     {
+        _speed = _isRunning ? _runSpeed : _walkSpeed;
+        
         Vector3 movement = new Vector3(_movementInput.x, 0, _movementInput.y);
         movement *= _speed * 0.1f;
         transform.Translate(movement, Space.Self);
@@ -80,9 +80,11 @@ public class PlayerController : Singleton<PlayerController>
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<coin>(Coin out of Coin)
+        if (collision.gameObject.TryGetComponent<ICollectable>(out ICollectable coin))
+        {
         {
            coin.Collect();
         }
     }
+}
 }

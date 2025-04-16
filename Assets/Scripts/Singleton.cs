@@ -8,7 +8,7 @@ public class Singleton<T> : MonoBehaviour
 	public static T Instance {
 		get {
 			if (_instance == null) {
-				var objs = FindObjectsByType<T> (FindobjectSortMode.None);
+				var objs = FindObjectsByType<T>(FindObjectsSortMode.None);
 				if (objs.Length > 0)
 					_instance = objs[0];
 				if (objs.Length > 1) {
