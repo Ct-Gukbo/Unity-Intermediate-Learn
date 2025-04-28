@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09770f34931e97345b75f0bb5e464519, type: 3}
   m_Name: Sae
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Elementaltype: 0
-  Health: 0
-  ATK: 0
-  Cost: 0
-  CharacterImage: {fileID: 0}
+  Name: Kachow
+  Description: The freaky car
+  Elementaltype: 3
+  Health: 11
+  ATK: 11
+  Cost: 11
+  CharacterImage: {fileID: 21300000, guid: 4226f04693f4a224ea8e425e4cb29c87, type: 3}
